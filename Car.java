@@ -57,12 +57,10 @@ public class Car implements Movable{
         direction[0] = (direction[0] +1)%4;
     }
 
-    // TODO fix this method according to lab pm
     public void gas(double amount){
         incrementSpeed(Math.min(Math.abs(amount),1));
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount){
         decrementSpeed(Math.max(amount,0));
     }
