@@ -1,7 +1,7 @@
 interface Movable {
-    int[] pos = new int[2];
+    double[] pos = new double[2];
     int[] direction = new int[1];
-    void move(int[] direction);
+    void move();
     void turnLeft();
     void turnRight();
 }

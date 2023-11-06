@@ -1,12 +1,11 @@
 import java.awt.*;
 
 public class Car implements Movable{
-    public int nrDoors; // Number of doors on the car vroom
-    public double currentSpeed; // The current speed of the car
-    public double enginePower; // Engine power of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-
+    protected int nrDoors; // Number of doors on the car vroom
+    protected double currentSpeed; // The current speed of the car
+    protected double enginePower; // Engine power of the car
+    protected Color color; // Color of the car
+    protected String modelName; // The car model name
 
     public int getNrDoors(){
         return nrDoors;
@@ -29,24 +28,26 @@ public class Car implements Movable{
     public void stopEngine(){
         currentSpeed = 0;
     }
-    public void incrementSpeed(double amount){
+    private void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        //SAAB was missing math.min()
     }
-    public void decrementSpeed(double amount){
+    private void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        //SAAB was missing math.max()
     }
     //int[] pos = new int[2];
 
-    public void move(int[] direction){
+    public void move(){
         switch(direction[0]){
             case 0:
-                pos[1]++;
+                pos[1]+=getCurrentSpeed();
             case 1:
-                pos[0]++;
+                pos[0]+=getCurrentSpeed();;
             case 2:
-                pos[1]--;
+                pos[1]-=getCurrentSpeed();
             case 3:
-                pos[0]--;
+                pos[0]-=getCurrentSpeed();
         }
     }
     public void turnLeft(){
@@ -58,12 +59,12 @@ public class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        incrementSpeed(amount);
+        incrementSpeed(Math.min(Math.abs(amount),1));
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        decrementSpeed(amount);
+        decrementSpeed(Math.max(amount,0));
     }
 
     double speedFactor(){

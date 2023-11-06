@@ -11,7 +11,7 @@ public class Saab95{
     
     public Saab95(){
         nrDoors = 2;
-        color = Color.red;
+        setColor(Color.red);
         enginePower = 125;
 	    turboOn = false;
         modelName = "Saab95";
@@ -55,8 +55,9 @@ public class Saab95{
     
     @Override double speedFactor(){
         double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        if(turboOn)
+            turbo = 1.3;
+        return getEnginePower() * 0.01 * turbo;
     }
 
 }

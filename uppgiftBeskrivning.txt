@@ -1,22 +1,24 @@
-Uppgift 1: Grundläggande arv
-Bekanta er med koden i repot. För närvarande finns det två Java-filer, Volvo240.java och Saab95.java. Just nu verkar klasserna ha ganska mycket gemensamt, eftersom båda representerar bilar.
+# Uppgift 1: Grundläggande arv
+    Bekanta er med koden i repot. För närvarande finns det två Java-filer, Volvo240.java och Saab95.java.
+    Just nu verkar klasserna ha ganska mycket gemensamt, eftersom båda representerar bilar.
 
-Skapa en arvshierarki där Volvo240 och Saab95 ingår, som eliminerar all kod-duplicering, och som följer Open-Closed Principle. Gör dessa ändringar utan att ändra på klassernas funktionalitet.
-Bör ni använda implementationsarv (subclassing) eller specifikationsarv (interfaces)? Varför? Kan båda användas? Vilka för- och nackdelar ser ni?
-I originalfilerna är alla metoder och variabler public, vilket exponerar allt till användaren. Ändra synligheten på de metoder och variabler som användaren inte behöver se eller känna till.
-Vilken synlighet bör ni använda för de olika metoder och variabler som klasserna innehåller? Vilket gränssnitt bör ni exponera?
-Se till att alla filer kompilerar och fortsätt till nästa uppgift.
+    Skapa en arvshierarki där Volvo240 och Saab95 ingår, som eliminerar all kod-duplicering, och som följer Open-Closed
+    Principle. Gör dessa ändringar utan att ändra på klassernas funktionalitet.Bör ni använda implementationsarv (subclassing)
+    eller specifikationsarv (interfaces)? Varför? Kan båda användas? Vilka för- och nackdelar ser ni? I originalfilerna
+    är alla metoder och variabler public, vilket exponerar allt till användaren. Ändra synligheten på de metoder och
+    variabler som användaren inte behöver se eller känna till. Vilken synlighet bör ni använda för de olika metoder och
+    variabler som klasserna innehåller? Vilket gränssnitt bör ni exponera? Se till att alla filer kompilerar och
+    fortsätt till nästa uppgift.
 
-Uppgift 2: Action Interfaces
-I denna uppgift fortsätter vi bygga på föregående genom
-att vi nu också implementerar ett interface kallat Movable.
+# Uppgift 2: Action Interfaces
+    I denna uppgift fortsätter vi bygga på föregående genom
+    att vi nu också implementerar ett interface kallat Movable.
 
-Skapa en fil Movable.java, som deklarerar ett interface med följande metoder:
-void move();
-void turnLeft();
-void turnRight();
+    Skapa en fil Movable.java, som deklarerar ett interface med följande metoder:
+    void move();
+    void turnLeft();
+    void turnRight();
 
-Se till att era bilar implementerar interfacet Movable,
-med någon lämplig intern representation av deras riktning och position.
-Metoden move ska fungera så att beroende på riktning ökas (eller minskas)
-bilens x- eller y-koordinat med dess currentSpeed.
+    Se till att era bilar implementerar interfacet Movable, med någon lämplig intern representation av
+    deras riktning och position. Metoden move ska fungera så att beroende på riktning ökas (eller minskas)
+    bilens x- eller y-koordinat med dess currentSpeed.
