@@ -1,6 +1,8 @@
 import java.awt.*;
 
 public class Car implements Movable{
+    protected double[] pos = new double[2];
+    protected int direction = 0;
     protected int nrDoors; // Number of doors on the car vroom
     protected double currentSpeed; // The current speed of the car
     protected double enginePower; // Engine power of the car
@@ -36,27 +38,35 @@ public class Car implements Movable{
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
         //SAAB was missing math.max()
     }
+
+    public double[] getPos(){
+        return pos;
+    }
     //int[] pos = new int[2];
 
     public void move(){
-        switch(direction[0]){
+        switch(getDirection()){
             case 0:
                 pos[1]+=getCurrentSpeed();
+                break;
             case 1:
-                pos[0]+=getCurrentSpeed();;
+                pos[0]+=getCurrentSpeed();
+                break;
             case 2:
                 pos[1]-=getCurrentSpeed();
+                break;
             case 3:
                 pos[0]-=getCurrentSpeed();
+                break;
         }
     }
     public void turnLeft(){
-        direction[0] = (direction[0] -1)%4;
+        direction = ((((getDirection()-1) % 4) + 4) % 4);
     }
     public void turnRight(){
-        direction[0] = (direction[0] +1)%4;
+        direction = (getDirection() +1)%4;
     }
-
+    public int getDirection(){return direction;}
     public void gas(double amount){
         incrementSpeed(Math.min(Math.abs(amount),1));
     }
@@ -68,6 +78,4 @@ public class Car implements Movable{
     double speedFactor(){
         return enginePower * 0.01;
     }
-
-
 }
